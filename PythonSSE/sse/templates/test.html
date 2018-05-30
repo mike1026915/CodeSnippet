@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" >
+		function init()
+		{
+			var targetContainer = document.getElementById("this-div");
+			var eventSource = new EventSource("/stream_numer");
+			eventSource.onmessage = function(e) {
+				var data = "<p>random number is " + e.data + "</p>"
+				console.log(data)
+				targetContainer.innerHTML = data;
+			}
+		}
+	</script>
+	<title>Test</title>
+</head>
+<body onload="init()">
+	<div id="this-div">
+		
+	</div>
+</body>
+</html>
